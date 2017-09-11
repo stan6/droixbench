@@ -1,0 +1,2 @@
+TOUCH|{'x':769,'y':124,'type':'downAndUp',}
+adb shell input keyevent 62

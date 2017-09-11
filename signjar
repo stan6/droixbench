@@ -1,0 +1,6 @@
+appName=$2
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore droixkey.keystore -storepass 123456 $1 droix
+if [ $? -ne 0 ]; then
+zip -d $2.apk META-INF/\*
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore droixkey.keystore -storepass 123456 $1 droix
+fi

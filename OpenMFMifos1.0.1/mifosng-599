@@ -1,0 +1,17 @@
+TOUCH|{'x':77,'y':128,'type':'downAndUp',}
+TOUCH|{'x':263,'y':756,'type':'downAndUp',}
+TOUCH|{'x':691,'y':336,'type':'downAndUp',}
+TOUCH|{'x':1029,'y':128,'type':'downAndUp',}
+TOUCH|{'x':661,'y':1012,'type':'downAndUp',}
+TOUCH|{'x':472,'y':400,'type':'downAndUp',}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(864,717),'end':(172,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(172,717),'end':(864,717),'duration':1.0,'steps':10,}
+DRAG|{'start':(172,717),'end':(864,717),'duration':1.0,'steps':10,}

@@ -1,0 +1,6 @@
+TOUCH|{'x':57,'y':156,'type':'downAndUp',}
+TOUCH|{'x':286,'y':784,'type':'downAndUp',}
+TOUCH|{'x':313,'y':284,'type':'downAndUp',}
+TOUCH|{'x':408,'y':272,'type':'downAndUp',}
+TOUCH|{'x':438,'y':944,'type':'downAndUp',}
+ROTATE

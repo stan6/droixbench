@@ -1,0 +1,4 @@
+TOUCH|{'x':904,'y':136,'type':'downAndUp',}
+TOUCH|{'x':394,'y':128,'type':'downAndUp',}
+TYPE|{'message':'henchmen',}
+TOUCH|{'x':988,'y':1700,'type':'downAndUp',}

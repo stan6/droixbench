@@ -1,0 +1,10 @@
+WAIT|{'seconds':8.0,}
+TOUCH|{'x':297,'y':1676,'type':'downAndUp',}
+WAIT|{'seconds':8.0,}
+TOUCH|{'x':297,'y':1672,'type':'downAndUp',}
+WAIT|{'seconds':15.0,}
+TOUCH|{'x':448,'y':392,'type':'downAndUp',}
+WAIT|{'seconds':8.0,}
+TYPE|{'message':'hi',}
+WAIT|{'seconds':8.0,}
+ROTATE

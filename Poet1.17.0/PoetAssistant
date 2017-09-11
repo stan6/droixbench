@@ -1,0 +1,7 @@
+TOUCH|{'x':1022,'y':140,'type':'downAndUp',}
+TOUCH|{'x':732,'y':268,'type':'downAndUp',}
+TOUCH|{'x':421,'y':1588,'type':'downAndUp',}
+TOUCH|{'x':378,'y':996,'type':'downAndUp',}
+TOUCH|{'x':394,'y':1628,'type':'downAndUp',}
+TOUCH|{'x':408,'y':876,'type':'downAndUp',}
+adb -e shell am start -a android.intent.action.VIEW -d poetassistant://thesaurus/hello

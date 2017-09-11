@@ -1,0 +1,7 @@
+TOUCH|{'x':1022,'y':144,'type':'downAndUp',}
+TOUCH|{'x':762,'y':260,'type':'downAndUp',}
+TOUCH|{'x':891,'y':116,'type':'downAndUp',}
+TOUCH|{'x':506,'y':260,'type':'downAndUp',}
+TYPE|{'message':'Test',}
+TOUCH|{'x':219,'y':1848,'type':'downAndUp',}
+TOUCH|{'x':550,'y':1384,'type':'downAndUp',}
