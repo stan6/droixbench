@@ -126,9 +126,9 @@ def main():
 
     if len(sys.argv) > 4:
           sleeptime = float(sys.argv[4])
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 3:
          outputDir = sys.argv[3]
-    elif len(sys.argv)> 3:
+    elif len(sys.argv)> 2:
          outputDir = os.getcwd()
     print "SLEEPTIME:"+str(sleeptime)
     insert_wait = True
