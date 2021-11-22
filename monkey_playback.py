@@ -31,7 +31,7 @@ import signal
 # dictionary (it can be evaled into existence) that specifies the
 # arguments for the command.  In most cases, this directly maps to the
 # keyword argument dictionary that could be passed to the underlying
-# command. 
+# command.
 
 # Lookup table to map command strings to functions that implement that
 # command.
@@ -39,7 +39,7 @@ CMD_MAP = {
     'TOUCH': lambda dev, arg: dev.touch(**arg),
     'DRAG': lambda dev, arg: dev.drag(**arg),
     'PRESS': lambda dev, arg: dev.press(**arg),
-    'TYPE': lambda dev, arg: dev.type(**arg)
+    'TYPE': lambda dev, arg: dev.type(**arg),
     'WAIT': lambda dev, arg: time.sleep(float(**arg))
     }
 
@@ -47,13 +47,13 @@ CMD_MAP = {
 
 # Process a single file for the specified device.
 def process_file(fp, device, app, outputDir, snapshot, insert_wait, sleeptime):
-    index=0 
+    index=0
     snapshot = False
     data = {}
     data['views'] = []
     os.system("adb logcat -c")
-     
-    
+
+
     for line in fp:
         if not "WAIT" in line:
           os.system("adb logcat -d")
@@ -73,38 +73,38 @@ def process_file(fp, device, app, outputDir, snapshot, insert_wait, sleeptime):
         if "adb" in line:
               print "adb command:"+line
               time.sleep(6.0)
-              os.system(line) 
+              os.system(line)
               time.sleep(2.0)
               continue
         (cmd, rest) = line.split('|')
-        
+
         try:
             # Parse the pydict
             rest = eval(rest)
             if cmd == "WAIT":
                time.sleep(float(rest["seconds"]))
                insert_wait=False
-               continue 
+               continue
             elif cmd not in CMD_MAP:
                print 'unknown command: ' + cmd
                continue
         except:
             print 'unable to parse options'
-            continue 
-        
+            continue
+
         if insert_wait:
                  time.sleep(sleeptime)
         CMD_MAP[cmd](device, rest)
-         
+
     time.sleep(8)
-    os.system("adb logcat -d") 
+    os.system("adb logcat -d")
     os.system("adb shell am force-stop "+ app)
     os.system("adb logcat -c")
     time.sleep(3)
     # Home button press
     device.press('KEYCODE_HOME','DOWN_AND_UP')
     device.shell('killall com.android.commands.monkey')
-    
+
 
 def exit_gracefully(signum, frame):
     print "Gracefully exiting"
@@ -125,10 +125,10 @@ def main():
     app = sys.argv[2]
 
     if len(sys.argv) > 4:
-          sleeptime = float(sys.argv[4]) 
-    if len(sys.argv) > 2:
+          sleeptime = float(sys.argv[4])
+    if len(sys.argv) > 3:
          outputDir = sys.argv[3]
-    elif len(sys.argv)> 3:
+    elif len(sys.argv)> 2:
          outputDir = os.getcwd()
     print "SLEEPTIME:"+str(sleeptime)
     insert_wait = True
@@ -141,35 +141,35 @@ def main():
                      # Parse the pydict
                      rest = eval(rest)
                      if "TOUCH" in line:
-                        print "TOUCH:"+str(rest) 
+                        print "TOUCH:"+str(rest)
                         touchlist.append((rest['x'],rest['y'],rest['type']))
               if "FAST" in line:
                    save = True
-                                      
+
               if "WAIT" in line:
                    insert_wait= False
     f.close()
     fp = open(file, 'r')
     signal.signal(signal.SIGINT, exit_gracefully)
-    
+
     os.system("adb shell am force-stop "+ app)
 
     time.sleep(1)
     os.system("adb logcat -c")
-    
+
     os.system("adb logcat -d")
-    
+
     os.system("adb shell monkey -p "+app+" -c android.intent.category.LAUNCHER 1")
     os.system("adb logcat -d")
-    print "Waiting for:"+app+": Output in:"+outputDir 
+    print "Waiting for:"+app+": Output in:"+outputDir
     time.sleep(5)
     device = MonkeyRunner.waitForConnection(10)
     if device is None:
-           print "NULL DEVICE" 
+           print "NULL DEVICE"
            os.system("adb kill-server")
            time.sleep(3)
            device = MonkeyRunner.waitForConnection(15)
-           
+
     try:
            device.wake()
            print "DEVICE AWAKEN"
@@ -182,16 +182,13 @@ def main():
          for (x,y,t) in touchlist:
            print "sending:"+str((x,y,t))
            time.sleep(0.5)
-           device.touch(x,y,'DOWN_AND_UP')       
+           device.touch(x,y,'DOWN_AND_UP')
     else:
          os.system("adb logcat -d")
          process_file(fp, device, app, outputDir, True, insert_wait, sleeptime)
     fp.close();
     sys.exit(0);
-       
+
 
 if __name__ == '__main__':
     main()
-
-
-
